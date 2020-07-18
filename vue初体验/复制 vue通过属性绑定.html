@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div id="app">
+			<!--<h1 :style="styleObj1">这里是变换的</h1>--->
+			<h1 :style="[styleObj1,styleObj2]">这里是变换的</h1>
+		</div>
+		<script src="../lib/vue.js"></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					styleObj1:{color:'red','font-weight':200},
+					styleObj2:{'font-style':'italic'}
+				},
+				methods:{}
+			})
+		</script>
+	</body>
+</html>

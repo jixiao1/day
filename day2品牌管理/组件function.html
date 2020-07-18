@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+		<counter></counter>
+		<hr />
+		<counter></counter>
+		<hr />
+		<counter></counter>
+
+	    </div>
+	    <template id="temp1">
+	    	<div>
+	    		<input type="button" value="+1" @click="cre" />
+	    		<p>{{count}}</p>
+	    	</div>
+	    </template>
+		
+		<script>
+			var obj={count:0}
+			Vue.component('counter',{
+				template:'#temp1',
+				data:function(){
+					return {count:0}
+				},
+				methods:{
+					cre(){
+						this.count++;
+					}
+				}
+			})
+		   var vm=new Vue({
+		   	  el:'#app',
+		   	  data:{},
+		   	  methods:{
+		   	  	
+		   	  }
+		   })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{mes|mesfagemat('疯狂+1','123')|test}}</p>
+		</div>
+		<script src="../lib/vue.js"></script>
+		<script>
+			//定义Vue全局过滤器，名字叫做mesfagemat
+			Vue.filter('mesfagemat',function(mes,reg,reg2){
+				//字符串的replace方法，第一个参数除了可以写字符串意外，还可以用正则
+				return mes.replace(/单纯/g,reg+reg2);
+			})
+			Vue.filter('test',function(mes){
+				return mes+'=====';
+			})
+			//创建vue实例，得到viewmodel
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					mes:'曾经，我也是一个单纯的少年，单纯的我。傻傻的问，谁是世界上最单纯的男人'
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<com2 v-bind:parentson="msg" @func="getmesSon"></com2>
+		</div>
+		<template id="tep">
+			<div>
+				<h3>子组件----{{parentson}}</h3>
+				<input type="button" value="点击"  @click="send"/>
+			</div>
+		</template>
+		<script>
+			var com2={
+				template:'#tep',
+				props:['parentson'],
+				data(){
+					return{
+						msg:'爸爸你老了，我养你'
+					}
+			
+			},
+			methods:{
+			  		send(){
+			  			this.$emit('func',this.msg)
+			  		}
+			  	}
+			}
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'儿子爸爸有钱你要吗',
+					getSONMES:''
+				},
+				methods:{
+					getmesSon(data){
+						this.getSONMES=data
+						console.log(this.getSONMES)
+					}
+				},
+				components:{
+					com2
+				}
+			})
+		</script>
+	</body>
+</html>

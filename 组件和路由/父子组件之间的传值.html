@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<com2  v-bind:parentmsg="msg" @func="getMsgfromson"></com2>
+		</div>
+		<template id="temp">
+			<div>
+				<h3>子元素----{{parentmsg}}</h3>
+				<input type="button" value="向父组件传值"  @click="send"/>
+			</div>
+		</template>
+		<script>
+			var com2={
+				template:'#temp',
+				data(){
+					return{
+						msg:'做一个孝顺的孩子，给爸爸一些钱，让他挥霍吧'
+					}
+				},
+				methods:{
+					send(){
+						this.$emit('func',this.msg)
+					}
+				},
+				props:['parentmsg']
+				
+			}
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'儿子爸爸有一百块钱，你要吗？',
+					msgFromSon:''
+				},
+				methods:{
+					getMsgfromson(data){
+						this.msgFromSon=data
+						console.log(this.msgFromSon)
+					}
+				},
+				components:{
+					com2
+				}
+			})
+		</script>
+	</body>
+</html>

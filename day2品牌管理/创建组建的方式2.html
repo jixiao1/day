@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+		  <mycom2></mycom2>
+		</div>
+		<script>
+			//注意：无论是哪种方式创建出来的组件，组件的temple属性指向的模板内容，必须有且只有唯一一个
+			//根元素
+			Vue.component('mycom2',{
+				template:'<h3>这里是使用Vue.component创建的组件</h3>'
+			})
+			var vm=new Vue({
+				el:'#app',
+				data:{},
+				methods:{}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<cm2 :parentmsg="msg" @func="getMesSon"></cm2>
+		</div>
+		<template id="tep">
+			<div>
+				<h3>子组件的元素---{{parentmsg}}</h3>
+				<input type="button" value="儿子向父亲传值" @click="send" />
+			</div>
+		</template>
+		<script>
+			  var cm2={
+			  	template:'#tep',
+			  	data(){
+			  		return{
+			  			msg:"爸爸你老了，我给你钱"
+			  		}
+			  	},
+			  	methods:{
+			  		send(){
+			  			this.$emit('func',this.msg)
+			  		}
+			  	},
+			  	props:['parentmsg']
+			  }
+			var vm=new Vue({
+				el:'#app',
+				data:{
+				   msg:'儿子，爸爸有钱你要吗',
+				   getSON:''
+				},
+				methods:{
+					getMesSon(data){
+						this.getSON=data
+						console.log(this.getSON)
+					}
+				},
+				components:{
+					cm2
+				}
+			})
+		</script>
+	</body>
+</html>

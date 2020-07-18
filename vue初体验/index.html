@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+	<meta charset="utf-8" />
+	
+	<script type="text/javascript" src="../lib/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		
+		<p v-cloak="message">{{123}}</p>
+		<p v-text="mes">123</p>
+		<!---v-text没有闪烁功能，但是会有覆盖--->
+		<div v-html="mes"></div>
+		<!--v-bind:是vue中用于绑定的事件---->
+		<!---<input type="button" value="按钮" :title="mytitle+'123'" />--->
+		<!--<input type="button" value="按钮" v-bind:title="mytitle" />---->
+		<!---<input type="button" value="按钮" id="btn" />---->
+		     <input type="button" value="按钮" v-on:click="show" />
+	</div>
+ <script type="text/javascript">
+ new Vue({
+ 	el: '#app',
+ 	data: {
+         message:'123',
+         mes:'我是一个大大的H2，我大我骄傲',
+         mytitle:'我是一个title'
+ 	},
+ 	methods:{
+ 		show:function(){
+ 			alert('123')
+ 		}
+ 	}
+ 	
+ 
+ })
+ /*
+ document.getElementById('btn').onclick=function(){
+ 		alert('hello')
+ 	}*/
+ 	
+ </script>
+</body>
+</html>

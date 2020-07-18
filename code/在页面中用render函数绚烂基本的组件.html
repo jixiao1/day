@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<login></login>
+		</div>
+		<script>
+			var login={
+				template:"<h3>登录组件</h3>"
+			}
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					
+				},
+				methods:{
+					
+				},
+				render:function(creteElement){
+					return creteElement(login)
+				}
+			})
+		</script>
+	</body>
+</html>

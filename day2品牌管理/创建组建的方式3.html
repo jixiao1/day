@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<mycom3></mycom3>
+			
+		</div>
+		<div id="app2">
+			<mycom3></mycom3>
+			<login></login>
+		</div>
+		<template id="tem">
+				<div>
+					<h1>这是通过temple外部创建组件</h1>
+					<h3>好用，不错</h3>
+				</div>
+			</template>
+			<template id="tem2">
+				<h3>这是一个私有的组件</h3>
+			</template>
+		<script>
+			Vue.component('mycom3',{
+				template:'#tem'
+			})
+			var vm=new Vue({
+				el:'#app',
+				data:{},
+				methods:{}
+			})
+		      var vm2=new Vue({
+		      	el:'#app2',
+		      	data:{},
+		      	methods:{},
+		      	filters:{},
+		      	directives:{},
+		      	components:{
+		      		login:{
+		      			template:'#tem2'
+		      		}
+		      	}
+		      })
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h4>{{mes}}</h4>
+			<!-v-bind只能实现数据的单项的绑定,不能实现数据的双向的绑定--->
+			<!--<input type="text" v-bind:value="mes" style="width: 100%;"/>-->
+			<!--使用v-model可以实现与M的双向的绑定，注意只能在表单中使用--->
+			<input type="text" v-model="mes" style="width: 100%;"/>
+		</div>
+		<script src="../lib/vue.js"></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					mes:'我爱敲代码，是一个好学生,棒棒的'
+				}
+			})
+		</script>
+	</body>
+</html>

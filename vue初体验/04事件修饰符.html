@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.innerdiv{
+				height: 150px;
+				background-color: darkgreen;
+			}
+			.outer{
+				padding: 20px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!----<div class="innerdiv" @click="divhander">----->
+				<!--
+                	//.stop阻止冒泡
+                -->
+                
+				<!--
+                	><input type="button" value="戳他" @click.stop="btnhander"/>
+               -->
+               <!--
+                	//.prevent阻止默认行为
+                -->
+                
+               <!---<a href="http://www.baidu.com" @click.prevent="link">去百度</a>--->
+               <!--
+                	//.capture实现捕获机制
+                -->
+                <!--
+                	//.self只有点击自己的元素才会促发的机制
+                -->
+                <!--
+                	//.once只出发一次的事件
+                -->
+                
+               <!---<div class="innerdiv" @click.self="divhander">
+               	  <input type="button" value="戳他" @click="btnhander"/>--->
+               	 <!--- <a href="http://www.baidu.com" @click.prevent.once="link">去百度</a>-->
+               	<!-- <div class="outer" @click="div1hander">
+               	 	<div class="innerdiv" @click="divhander">
+               	  <input type="button" value="戳他" @click.stop="btnhander"/>
+               	 </div>--->
+               	 <div class="outer" @click="div1hander">
+               	 	<div class="innerdiv" @click.self="divhander">
+               	  <input type="button" value="戳他" @click.stop="btnhander"/>
+               	 </div>
+               </div>
+			</div>
+		</div>
+		<script src="../lib/vue.js"></script>
+		<script>
+			
+			var vm=new Vue({
+				el:"#app",
+				data:{},
+				methods:{
+					divhander(){
+						console.log("这里是div事件")
+					},
+					btnhander(){
+						console.log("这里是btn事件")
+					},
+					link(){
+						console.log("这里发生了跳转的事件")
+					},
+					div1hander(){
+						console.log("这里是div1事件")
+					}
+				}
+				
+				
+			})
+		</script>
+	</body>
+</html>

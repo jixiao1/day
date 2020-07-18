@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="浪起来" @click="lang"/>
+			<input type="button" value="低调" @click="stop"/>
+			<h4>{{mes}}</h4>
+		</div>
+		<script src="../lib/vue.js"></script>
+		<script>
+	     var vm=new Vue({
+	     	el:'#app',
+	     	data:{
+	     		mes:'猥琐发育，别浪',
+	     		interId:null //在data中定义定时器的id
+	     	},
+	     	methods:{
+	     		lang(){
+	     			//console.log(this.mes)
+	     			if(this.interId!=null) return;
+	     			this.interId=setInterval(() =>{
+	     				//获取字符串中的第一个字符
+	     				var  start=this.mes.substring(0,1)
+	     				//获取到和面的所有的字符
+	     			   var end=this.mes.substring(1);
+	     			   this.mes=end+start
+	     			},400)
+	     		},
+	     		stop(){
+	     			clearInterval(this.interId);
+	     			this.interId=null;
+	     		}
+	     	}
+	     })
+		</script>
+	</body>
+</html>

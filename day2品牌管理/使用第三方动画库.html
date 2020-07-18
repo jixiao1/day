@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../lib/animate.css" />
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="toggle" @click="flag=!flag" />
+			<!---<transition enter-ative-class="animated bounceIn" leave-active-class="animated bounceOut">
+				<h3 v-if="flag">这里是h3动画</h3>
+			</transition>--->
+			<!---<transition enter-ative-class=" bounceIn" leave-active-class=" bounceOut">
+				<h3 v-if="flag" class="animated">这里是h3动画</h3>
+			</transition>---->
+			<transition 
+				enter-ative-class=" bounceIn"
+				leave-active-class=" bounceOut"
+				:duration="{enter:200, leave:400}"  >
+				<h3 v-if="flag" class="animated">这里是h3动画</h3>
+			</transition>
+			
+		</div>
+		<script src="../lib/vue.js"></script>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					flag:false
+				},
+				methods:{}
+			})
+		</script>
+	</body>
+</html>

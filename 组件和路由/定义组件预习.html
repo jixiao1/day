@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--
+            <mycomr></mycomr>
+            -->
+            <!--
+            <mycomr1></mycomr1>
+            -->
+        <!---- <mycomr3></mycomr3>--->
+        <!--
+        	<my1></my1>：
+        -->
+        <my2></my2>
+		</div>
+		<!---<template id="tem">
+			<h3>345</h3>
+		</template>---->
+		<script>
+		   // Vue.component('mycomr',Vue.extend({
+		    	//template:'<h1>123</h1>'
+		   // }))
+		  // Vue.component('mycomr1',{
+		   	  //template:'<h2>234</h2>'
+		  //})
+		//  Vue.component('mycomr3',{
+		  //	template:'#tem'
+		//  })
+		var login={
+		  template:'<h1>王八蛋</h1>'
+		}
+		//Vue.component('my1',login)
+			var  vm=new Vue({
+				el:'#app',
+				data:{},
+				methods:{},
+				components:{
+					'my2':login
+				}
+			})
+		</script>
+	</body>
+</html>

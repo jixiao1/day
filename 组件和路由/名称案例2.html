@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="firstname" />+
+			<input type="text" v-model="lastname" />=
+			<input type="text" v-model="fullname" />
+		</div>
+		<script>
+			//watch的监听
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					firstname:'',
+					lastname:'',
+					fullname:''
+				},
+				methods:{},
+					watch:{
+						'firstname' : function(newVal,oldVal){
+							this.fullname=newVal+'-'+this.lastname
+						},
+						'lastname':function(newVal){
+							this.fullname=this.firstname+'-'+newVal
+						}
+				
+				}
+				
+			})
+		</script>
+	</body>
+</html>

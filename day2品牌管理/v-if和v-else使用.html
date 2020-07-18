@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/vue.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<a href="" @click.prevent="flag=true">登录</a>
+			<a href=""  @click.prevent="flag=false">注册</a>
+			<denglu v-if="flag"></denglu>
+			<zhuce v-else="flag"></zhuce>
+		</div>
+		<script>
+			Vue.component('denglu',{
+				template:'<h3>这是登录组件</h3>'
+			})
+			Vue.component('zhuce',{
+				template:'<h3>这是注册组件</h3>'
+			})
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					flag:true
+				},
+				methods:{}
+			})
+		</script>
+	</body>
+</html>
